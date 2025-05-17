@@ -1,0 +1,81 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+:root {
+  box-sizing: border-box;
+
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  display: flex;
+  place-items: center;
+  min-height: 100vh;
+}
+
+#app {
+  max-width: 50ch;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+#calculator {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background: gray;
+}
+
+#display {
+  height: 5rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  background-color: lightgray;
+  text-align: right;
+}
+
+#display #expression {
+  box-sizing: content-box;
+  height: 2.5rem;
+  padding: 0.25rem;
+  line-height: 2.5rem;
+  font-size: 2.5rem;
+  font-weight: 400;
+}
+
+#display #result {
+  box-sizing: content-box;
+  height: 1.5rem;
+  padding: 0.25rem;
+  line-height: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 100;
+}
+
+#keyboard {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.25rem;
+}
+
+#keyboard .btn {
+  min-width: 44pt;
+  min-height: 44pt;
+}
+
+#keyboard #eq-btn {
+  background-color: orange;
+}
