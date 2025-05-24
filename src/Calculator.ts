@@ -28,7 +28,7 @@ export class Calculator {
 
   public compute() {
     try {
-      this.result = evaluate(this.expression)
+      this.result = evaluate(this.expression).toString()
       this.isValidExpression = true
     } catch (error) {
       console.log(error)
