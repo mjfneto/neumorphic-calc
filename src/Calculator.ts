@@ -1,6 +1,7 @@
 import { evaluate } from 'mathjs'
 
 export class Calculator {
+  private displayValue: string
   private expression: string
   private result: string
   private openingParentheses: number
@@ -9,6 +10,7 @@ export class Calculator {
   private updateDisplayHTML: (val1: string, val2: string) => void
 
   constructor(updateDisplay: (val1: string, val2: string) => void) {
+    this.displayValue = ''
     this.expression = ''
     this.result = ''
     this.openingParentheses = 0
@@ -19,6 +21,7 @@ export class Calculator {
   public appendTerm(term: string) {
     this.expression += term
 
+    this.displayValue = this.expression
     this.compute()
     this.updateDisplay()
   }
@@ -42,6 +45,7 @@ export class Calculator {
       this.expression += ')'
       this.openingParentheses -= 1
 
+      this.displayValue = this.expression
       this.compute()
       this.updateDisplay()
       return
@@ -50,11 +54,13 @@ export class Calculator {
     this.expression += '('
     this.openingParentheses += 1
 
+    this.displayValue = this.expression
     this.compute()
     this.updateDisplay()
   }
 
   public clear() {
+    this.displayValue = ''
     this.expression = ''
     this.result = ''
     this.openingParentheses = 0
@@ -68,6 +74,7 @@ export class Calculator {
 
     this.openingParentheses = Array.from(this.expression.matchAll(/\(/g)).length
 
+    this.displayValue = this.expression
     this.compute()
     this.updateDisplay()
   }
@@ -80,7 +87,7 @@ export class Calculator {
       return
     }
 
-    this.expression = this.result
+    this.displayValue = this.result
     this.result = ''
     this.openingParentheses = 0
 
@@ -88,6 +95,6 @@ export class Calculator {
   }
 
   private updateDisplay() {
-    this.updateDisplayHTML(this.expression, this.result)
+    this.updateDisplayHTML(this.displayValue, this.result)
   }
 }
