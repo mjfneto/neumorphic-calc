@@ -9,27 +9,27 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     </div>
     <div id="keyboard">
       <button id="ac-btn" type="button" class="btn" data-type="allClear">AC</button>
-      <button id="parentheses-btn" type="button" class="btn" data-type="parentheses">()</button>
-      <button id="percentage-btn" type="button" class="btn" data-type="operator">%</button>
-      <button id="division-btn" type="button" class="btn" data-type="operator">÷</button>
+      <button id="parentheses-btn" type="button" class="btn" data-type="parentheses" data-term="()">()</button>
+      <button id="percentage-btn" type="button" class="btn" data-type="operator" data-term="%">%</button>
+      <button id="division-btn" type="button" class="btn" data-type="operator" data-term="/">/</button>
       
-      <button id="seven-btn" type="button" class="btn" data-type="number">7</button>
-      <button id="eight-btn" type="button" class="btn" data-type="number">8</button>
-      <button id="nine-btn" type="button" class="btn" data-type="number">9</button>
-      <button id="multiplication-btn" type="button" class="btn" data-type="operator">×</button>
+      <button id="seven-btn" type="button" class="btn" data-type="number" data-term="7">7</button>
+      <button id="eight-btn" type="button" class="btn" data-type="number" data-term="8">8</button>
+      <button id="nine-btn" type="button" class="btn" data-type="number" data-term="9">9</button>
+      <button id="multiplication-btn" type="button" class="btn" data-type="operator" data-term="*">*</button>
       
-      <button id="four-btn" type="button" class="btn" data-type="number">4</button>
-      <button id="five-btn" type="button" class="btn" data-type="number">5</button>
-      <button id="six-btn" type="button" class="btn" data-type="number">6</button>
-      <button id="minus-btn" type="button" class="btn" data-type="operator">−</button>
+      <button id="four-btn" type="button" class="btn" data-type="number" data-term="4">4</button>
+      <button id="five-btn" type="button" class="btn" data-type="number" data-term="5">5</button>
+      <button id="six-btn" type="button" class="btn" data-type="number" data-term="6">6</button>
+      <button id="minus-btn" type="button" class="btn" data-type="operator" data-term="-">-</button>
       
-      <button id="one-btn" type="button" class="btn" data-type="number">1</button>
-      <button id="two-btn" type="button" class="btn" data-type="number">2</button>
-      <button id="three-btn" type="button" class="btn" data-type="number">3</button>
-      <button id="addition-btn" type="button" class="btn" data-type="operator">+</button>
+      <button id="one-btn" type="button" class="btn" data-type="number" data-term="1">1</button>
+      <button id="two-btn" type="button" class="btn" data-type="number" data-term="2">2</button>
+      <button id="three-btn" type="button" class="btn" data-type="number" data-term="3">3</button>
+      <button id="addition-btn" type="button" class="btn" data-type="operator" data-term="+">+</button>
       
-      <button id="zero-btn" type="button" class="btn" data-type="number">0</button>
-      <button id="dot-btn" type="button" class="btn" data-type="decimal">.</button>
+      <button id="zero-btn" type="button" class="btn" data-type="number" data-term="0">0</button>
+      <button id="dot-btn" type="button" class="btn" data-type="decimal" data-term=".">.</button>
       <button id="backspace-btn" type="button" class="btn" data-type="backspace"><</button>
       <button id="eq-btn" type="button" class="btn" data-type="equals">=</button>
     </div>
@@ -48,26 +48,29 @@ keyboard.addEventListener('click', function (event: Event) {
 
   if (eventTarget.tagName !== 'BUTTON') return
 
-  const textContent = eventTarget.textContent
   const type = eventTarget.dataset.type
+  const term = eventTarget.dataset.term
 
-  if (textContent) {
-    if (
-      type === 'number' ||
-      type === 'operator' ||
-      type === 'parentheses' ||
-      type === 'decimal'
-    ) {
-      calculator.appendTerm(textContent)
+  if (term) {
+    if (type === 'number' || type === 'operator' || type === 'decimal') {
+      calculator.appendTerm(term)
     }
+  }
 
-    if (type === 'allClear') {
-      calculator.clear()
-    }
+  if (type === 'parentheses') {
+    calculator.appendParenthesis()
+  }
 
-    if (type === 'backspace') {
-      calculator.delete()
-    }
+  if (type === 'allClear') {
+    calculator.clear()
+  }
+
+  if (type === 'backspace') {
+    calculator.delete()
+  }
+
+  if (type === 'equals') {
+    calculator.equals()
   }
 })
 
