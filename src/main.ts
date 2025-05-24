@@ -29,7 +29,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       <button id="addition-btn" type="button" class="btn" data-type="operator" data-term="+">+</button>
       
       <button id="zero-btn" type="button" class="btn" data-type="number" data-term="0">0</button>
-      <button id="dot-btn" type="button" class="btn" data-type="decimal" data-term=".">.</button>
+      <button id="dot-btn" type="button" class="btn" data-type="decimal">.</button>
       <button id="backspace-btn" type="button" class="btn" data-type="backspace"><</button>
       <button id="eq-btn" type="button" class="btn" data-type="equals">=</button>
     </div>
@@ -52,13 +52,17 @@ keyboard.addEventListener('click', function (event: Event) {
   const term = eventTarget.dataset.term
 
   if (term) {
-    if (type === 'number' || type === 'operator' || type === 'decimal') {
+    if (type === 'number' || type === 'operator') {
       calculator.appendTerm(term)
     }
   }
 
   if (type === 'parentheses') {
     calculator.appendParenthesis()
+  }
+
+  if (type === 'decimal') {
+    calculator.appendDecimal()
   }
 
   if (type === 'allClear') {

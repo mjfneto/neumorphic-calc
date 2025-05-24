@@ -59,6 +59,14 @@ export class Calculator {
     this.updateDisplay()
   }
 
+  public appendDecimal() {
+    this.expression += '.'
+
+    this.displayValue = this.expression
+    this.compute()
+    this.updateDisplay()
+  }
+
   public clear() {
     this.displayValue = ''
     this.expression = ''
