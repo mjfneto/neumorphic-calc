@@ -27,41 +27,49 @@ body {
 }
 
 #app {
-  max-width: 50ch;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
 }
 
 #calculator {
+  width: 280px;
   padding: 1rem;
   border-radius: 0.5rem;
   background: gray;
 }
 
 #display {
-  height: 5rem;
+  direction: rtl;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  height: 7rem;
+  min-width: 0;
   margin-bottom: 1rem;
   border-radius: 0.5rem;
   background-color: lightgray;
-  text-align: right;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 #display #expression {
-  box-sizing: content-box;
-  height: 2.5rem;
+  direction: ltr;
+  flex-shrink: 0;
+  white-space: nowrap;
+  height: 4rem;
   padding: 0.25rem;
-  line-height: 2.5rem;
-  font-size: 2.5rem;
+  line-height: 3.5rem;
+  font-size: 3.5rem;
   font-weight: 400;
 }
 
 #display #result {
-  box-sizing: content-box;
-  height: 1.5rem;
-  padding: 0.25rem;
-  line-height: 1.5rem;
-  font-size: 1.5rem;
+  direction: ltr;
+  flex-shrink: 0;
+  white-space: nowrap;
+  height: 3rem;
+  padding: 0.25rem 0.25rem 1.5rem 0.25rem;
+  line-height: 1.25rem;
+  font-size: 1.25rem;
   font-weight: 100;
 }
 
