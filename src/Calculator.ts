@@ -3,6 +3,7 @@ import { evaluate } from 'mathjs'
 export class Calculator {
   private displayValue: string
   private expression: string
+  private lastExpression: string
   private result: string
   private openingParentheses: number
   private isValidExpression: boolean
@@ -12,6 +13,7 @@ export class Calculator {
   constructor(updateDisplay: (val1: string, val2: string) => void) {
     this.displayValue = ''
     this.expression = ''
+    this.lastExpression = ''
     this.result = ''
     this.openingParentheses = 0
     this.isValidExpression = false
@@ -19,6 +21,7 @@ export class Calculator {
   }
 
   public appendTerm(term: string) {
+    this.lastExpression = ''
     this.expression += term
 
     this.displayValue = this.expression
@@ -70,6 +73,7 @@ export class Calculator {
   public clear() {
     this.displayValue = ''
     this.expression = ''
+    this.lastExpression = ''
     this.result = ''
     this.openingParentheses = 0
     this.isValidExpression = false
@@ -78,12 +82,25 @@ export class Calculator {
   }
 
   public delete() {
-    this.expression = this.expression.slice(0, -1)
+    if (!this.expression) return
+
+    this.expression = (
+      this.lastExpression ? this.lastExpression : this.expression
+    ).slice(0, -1)
+
+    this.lastExpression = ''
 
     this.openingParentheses = Array.from(this.expression.matchAll(/\(/g)).length
 
     this.displayValue = this.expression
-    this.compute()
+
+    if (this.expression) {
+      this.compute()
+      this.updateDisplay()
+      return
+    }
+
+    this.result = ''
     this.updateDisplay()
   }
 
@@ -95,8 +112,9 @@ export class Calculator {
       return
     }
 
+    this.lastExpression = this.expression
+    this.expression = this.result
     this.displayValue = this.result
-    this.result = ''
     this.openingParentheses = 0
 
     this.updateDisplay()
