@@ -12,7 +12,11 @@
 :root {
   box-sizing: border-box;
 
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  font-optical-sizing: auto;
+  font-size: 0.75rem;
+
+  color: #6c7587;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -24,6 +28,12 @@ body {
   display: flex;
   place-items: center;
   min-height: 100vh;
+  background: #f0f0f3;
+}
+
+button {
+  font-family: inherit;
+  color: inherit;
 }
 
 #app {
@@ -31,10 +41,13 @@ body {
 }
 
 #calculator {
-  width: 280px;
-  padding: 1rem;
+  width: 20rem;
+  padding: 4rem 1rem 2rem 1rem;
   border-radius: 0.5rem;
-  background: gray;
+  border-radius: 1.5rem;
+  box-shadow: -10px -10px 30px #fff, 10px 10px 30px #aeaec040,
+    inset -10px -10px 10px #aeaec025, inset 10px 10px 10px #fff;
+  background-color: #f0f0f3;
 }
 
 #display {
@@ -46,9 +59,10 @@ body {
   min-width: 0;
   margin-bottom: 1rem;
   border-radius: 0.5rem;
-  background-color: lightgray;
+  background-color: #f0f0f3;
   overflow-x: auto;
   overflow-y: hidden;
+  box-shadow: inset -10px -10px 10px #ffffff70, inset 10px 10px 10px #aeaec020;
 }
 
 #display #expression {
@@ -56,9 +70,9 @@ body {
   flex-shrink: 0;
   white-space: nowrap;
   height: 4rem;
-  padding: 0.25rem;
-  line-height: 3.5rem;
-  font-size: 3.5rem;
+  padding: 0.5rem 0.5rem 0.25rem 0.25rem;
+  line-height: 3.25rem;
+  font-size: 3.25rem;
   font-weight: 400;
 }
 
@@ -67,7 +81,7 @@ body {
   flex-shrink: 0;
   white-space: nowrap;
   height: 3rem;
-  padding: 0.25rem 0.25rem 1.5rem 0.25rem;
+  padding: 0.25rem 0.5rem 1.5rem 0.25rem;
   line-height: 1.25rem;
   font-size: 1.25rem;
   font-weight: 100;
@@ -76,14 +90,55 @@ body {
 #keyboard {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 0.25rem;
+  gap: 0.75rem;
 }
 
 #keyboard .btn {
-  min-width: 44pt;
-  min-height: 44pt;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.675rem;
+  height: 3.675rem;
+  border: none;
+  border-radius: 100%;
+  font-weight: 300;
+  box-shadow: -10px -10px 30px #fff, 10px 10px 30px #aeaec040;
+  background-color: #f0f0f3;
+  text-shadow: 1px 1px white;
+}
+
+#keyboard .btn:active {
+  box-shadow: inset -10px -10px 10px #ffffff70, inset 10px 10px 10px #aeaec020;
 }
 
 #keyboard #eq-btn {
-  background-color: orange;
+  background-color: #ffd7a0;
+}
+
+#keyboard #eq-btn:active {
+  box-shadow: inset -10px -10px 10px #ffd7a070, inset 10px 10px 10px #f0c992aa;
+}
+
+#keyboard .btn[data-type='operator'],
+#keyboard .btn#parentheses-btn,
+#keyboard .btn#ac-btn,
+#keyboard .btn#eq-btn {
+  font-weight: 500;
+}
+
+@media screen and (min-width: 768px) {
+  :root {
+    font-size: 1rem;
+  }
+
+  #keyboard .btn {
+    font-weight: 400;
+  }
+
+  #keyboard .btn[data-type='operator'],
+  #keyboard .btn#parentheses-btn,
+  #keyboard .btn#ac-btn,
+  #keyboard .btn#eq-btn {
+    font-weight: 600;
+  }
 }
