@@ -83,13 +83,15 @@ button {
   border: none;
   border-radius: 100%;
   font-weight: 300;
-  box-shadow: -10px -10px 30px #fff, 10px 10px 30px #aeaec040;
+  box-shadow: -0.625rem -0.625rem 1.875rem #fff,
+    0.625rem 0.625rem 1.875rem #aeaec040;
   background-color: #f0f0f3;
   text-shadow: 1px 1px white;
 }
 
 .btn:active {
-  box-shadow: inset -10px -10px 10px #ffffff70, inset 10px 10px 10px #aeaec020;
+  box-shadow: inset -0.625rem -0.625rem 0.625rem #ffffff70,
+    inset 0.625rem 0.625rem 0.625rem #aeaec020;
 }
 
 #app {
@@ -101,8 +103,10 @@ button {
   padding: 1rem;
   border-radius: 0.5rem;
   border-radius: 1.5rem;
-  box-shadow: -10px -10px 30px #fff, 10px 10px 30px #aeaec040,
-    inset -10px -10px 10px #aeaec025, inset 10px 10px 10px #fff;
+  box-shadow: -0.625rem -0.625rem 1.875rem #fff,
+    0.625rem 0.625rem 1.875rem #aeaec040,
+    inset -0.625rem -0.625rem 0.625rem #aeaec025,
+    inset 0.625rem 0.625rem 0.625rem #fff;
   background-color: #f0f0f3;
 }
 
@@ -125,7 +129,8 @@ button {
 }
 
 #power-btn:checked ~ .input-visual.btn {
-  box-shadow: inset -10px -10px 10px #ffffff70, inset 10px 10px 10px #aeaec020;
+  box-shadow: inset -0.625rem -0.625rem 0.625rem #ffffff70,
+    inset 0.625rem 0.625rem 0.625rem #aeaec020;
   color: #d5ffea;
   text-shadow: 1px 1px 2px #d5ffea;
 }
@@ -142,7 +147,8 @@ button {
   background-color: #f0f0f3;
   overflow-x: auto;
   overflow-y: hidden;
-  box-shadow: inset -10px -10px 10px #ffffff70, inset 10px 10px 10px #aeaec020;
+  box-shadow: inset -0.625rem -0.625rem 0.625rem #ffffff70,
+    inset 0.625rem 0.625rem 0.625rem #aeaec020;
 }
 
 #display #expression {
@@ -178,7 +184,8 @@ button {
 }
 
 .btn#eq-btn:active {
-  box-shadow: inset -10px -10px 10px #ffd7a070, inset 10px 10px 10px #f0c992aa;
+  box-shadow: inset -0.625rem -0.625rem 0.625rem #ffd7a070,
+    inset 0.625rem 0.625rem 0.625rem #f0c992aa;
 }
 
 .btn[data-type='operator'],
