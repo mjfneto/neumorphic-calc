@@ -105,6 +105,8 @@ export class Calculator {
   }
 
   public equals() {
+    if (this.expression === '') return
+
     if (!this.isValidExpression) {
       this.result = 'Format error'
 
