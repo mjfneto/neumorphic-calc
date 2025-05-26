@@ -47,6 +47,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   </div>
 `
 
+const powerBtn = document.querySelector('#power-btn')!
 const display = document.querySelector('#display')!
 let expression = display.querySelector('#expression')!
 let result = display.querySelector('#result')!
@@ -54,7 +55,14 @@ let keyboard = document.querySelector('#keyboard')!
 
 const calculator = new Calculator(updateDisplay)
 
-keyboard.addEventListener('click', function (event: Event) {
+powerBtn.addEventListener('input', function () {
+  keyboard[calculator.power() ? 'addEventListener' : 'removeEventListener'](
+    'click',
+    handleKeyboardClicked
+  )
+})
+
+function handleKeyboardClicked(event: Event) {
   const eventTarget = event.target as HTMLButtonElement
 
   if (eventTarget.tagName !== 'BUTTON') return
@@ -87,7 +95,7 @@ keyboard.addEventListener('click', function (event: Event) {
   if (type === 'equals') {
     calculator.equals()
   }
-})
+}
 
 function updateDisplay(val1: string, val2: string) {
   expression.textContent = val1

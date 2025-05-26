@@ -7,6 +7,7 @@ export class Calculator {
   private result: string
   private openingParentheses: number
   private isValidExpression: boolean
+  private calcOn: boolean
 
   private updateDisplayHTML: (val1: string, val2: string) => void
 
@@ -17,6 +18,7 @@ export class Calculator {
     this.result = ''
     this.openingParentheses = 0
     this.isValidExpression = false
+    this.calcOn = false
     this.updateDisplayHTML = updateDisplay
   }
 
@@ -124,5 +126,13 @@ export class Calculator {
 
   private updateDisplay() {
     this.updateDisplayHTML(this.displayValue, this.result)
+  }
+
+  public power() {
+    this.calcOn = !this.calcOn
+
+    !this.calcOn && this.clear()
+
+    return this.calcOn
   }
 }
