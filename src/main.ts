@@ -3,6 +3,13 @@ import './style.css'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div id="calculator">
+    <header>
+      <label for="power-btn" class="custom-input">
+        <input id="power-btn" type="checkbox" />
+        <span class="input-visual btn">@</span>
+        <span class="label-text visually-hidden">Power</span>
+      </label>
+    </header>
     <div id="display">
       <div id="expression"></div>
       <div id="result"></div>

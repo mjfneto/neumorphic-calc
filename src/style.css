@@ -36,18 +36,99 @@ button {
   color: inherit;
 }
 
+.custom-input {
+  position: relative;
+  user-select: none;
+}
+
+.custom-input input {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0;
+  pointer-events: none;
+}
+
+.custom-input .input-visual {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  content: '';
+}
+
+.custom-input .label-text {
+  color: gray;
+  font-weight: 700;
+  transition: color 0.2s ease-out;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.675rem;
+  height: 3.675rem;
+  border: none;
+  border-radius: 100%;
+  font-weight: 300;
+  box-shadow: -10px -10px 30px #fff, 10px 10px 30px #aeaec040;
+  background-color: #f0f0f3;
+  text-shadow: 1px 1px white;
+}
+
+.btn:active {
+  box-shadow: inset -10px -10px 10px #ffffff70, inset 10px 10px 10px #aeaec020;
+}
+
 #app {
   margin: 0 auto;
 }
 
 #calculator {
   width: 20rem;
-  padding: 4rem 1rem 2rem 1rem;
+  padding: 1rem;
   border-radius: 0.5rem;
   border-radius: 1.5rem;
   box-shadow: -10px -10px 30px #fff, 10px 10px 30px #aeaec040,
     inset -10px -10px 10px #aeaec025, inset 10px 10px 10px #fff;
   background-color: #f0f0f3;
+}
+
+#calculator header {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  padding: 0.5rem 1rem 1.25rem 1rem;
+}
+
+#calculator header label {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+#power-btn ~ .input-visual.btn {
+  width: 2.5rem;
+  height: 2.5rem;
+  transition: all 0.3s ease-in-out;
+}
+
+#power-btn:checked ~ .input-visual.btn {
+  box-shadow: inset -10px -10px 10px #ffffff70, inset 10px 10px 10px #aeaec020;
+  color: #d5ffea;
+  text-shadow: 1px 1px 2px #d5ffea;
 }
 
 #display {
@@ -93,36 +174,18 @@ button {
   gap: 0.75rem;
 }
 
-#keyboard .btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 3.675rem;
-  height: 3.675rem;
-  border: none;
-  border-radius: 100%;
-  font-weight: 300;
-  box-shadow: -10px -10px 30px #fff, 10px 10px 30px #aeaec040;
-  background-color: #f0f0f3;
-  text-shadow: 1px 1px white;
-}
-
-#keyboard .btn:active {
-  box-shadow: inset -10px -10px 10px #ffffff70, inset 10px 10px 10px #aeaec020;
-}
-
-#keyboard #eq-btn {
+.btn#eq-btn {
   background-color: #ffd7a0;
 }
 
-#keyboard #eq-btn:active {
+.btn#eq-btn:active {
   box-shadow: inset -10px -10px 10px #ffd7a070, inset 10px 10px 10px #f0c992aa;
 }
 
-#keyboard .btn[data-type='operator'],
-#keyboard .btn#parentheses-btn,
-#keyboard .btn#ac-btn,
-#keyboard .btn#eq-btn {
+.btn[data-type='operator'],
+.btn#parentheses-btn,
+.btn#ac-btn,
+.btn#eq-btn {
   font-weight: 500;
 }
 
@@ -131,14 +194,14 @@ button {
     font-size: 1rem;
   }
 
-  #keyboard .btn {
+  .btn {
     font-weight: 400;
   }
 
-  #keyboard .btn[data-type='operator'],
-  #keyboard .btn#parentheses-btn,
-  #keyboard .btn#ac-btn,
-  #keyboard .btn#eq-btn {
+  .btn[data-type='operator'],
+  .btn#parentheses-btn,
+  .btn#ac-btn,
+  .btn#eq-btn {
     font-weight: 600;
   }
 }
