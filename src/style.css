@@ -60,7 +60,6 @@ button {
 .custom-input .label-text {
   color: gray;
   font-weight: 700;
-  transition: color 0.2s ease-out;
 }
 
 .visually-hidden {

@@ -6,7 +6,9 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <header>
       <label for="power-btn" class="custom-input">
         <input id="power-btn" type="checkbox" />
-        <span class="input-visual btn">@</span>
+        <span class="input-visual btn">
+          <span class="material-icons">power_settings_new</span>
+        </span>
         <span class="label-text visually-hidden">Power</span>
       </label>
     </header>
