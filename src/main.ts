@@ -39,7 +39,9 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       
       <button id="zero-btn" type="button" class="btn" data-type="number" data-term="0">0</button>
       <button id="dot-btn" type="button" class="btn" data-type="decimal">.</button>
-      <button id="backspace-btn" type="button" class="btn" data-type="backspace"><</button>
+      <button id="backspace-btn" type="button" class="btn" data-type="backspace">
+        <span class="material-icons">backspace</span>
+      </button>
       <button id="eq-btn" type="button" class="btn" data-type="equals">=</button>
     </div>
   </div>
