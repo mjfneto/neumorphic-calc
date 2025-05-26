@@ -63,12 +63,13 @@ powerBtn.addEventListener('input', function () {
 })
 
 function handleKeyboardClicked(event: Event) {
-  const eventTarget = event.target as HTMLButtonElement
+  const eventTarget = event.target as HTMLElement
+  const closestBtn = eventTarget.closest('.btn') as HTMLButtonElement
 
-  if (eventTarget.tagName !== 'BUTTON') return
+  if (!closestBtn) return
 
-  const type = eventTarget.dataset.type
-  const term = eventTarget.dataset.term
+  const type = closestBtn.dataset.type
+  const term = closestBtn.dataset.term
 
   if (term) {
     if (type === 'number' || type === 'operator') {
