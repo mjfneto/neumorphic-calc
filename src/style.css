@@ -31,6 +31,16 @@
 
   --bg-color-dark: #2d2d2d;
 
+  --box-shadow-flat: -0.625rem -0.625rem 1.875rem white,
+    0.625rem 0.625rem 1.875rem var(--box-shadow-gray-1);
+  --box-shadow-convex: -0.625rem -0.625rem 1.875rem white,
+    0.625rem 0.625rem 1.875rem var(--box-shadow-gray-1),
+    inset -0.625rem -0.625rem 0.625rem var(--box-shadow-gray-2),
+    inset 0.625rem 0.625rem 0.625rem white;
+  --box-shadow-concave: inset -0.625rem -0.625rem 0.625rem
+      var(--box-shadow-white-1),
+    inset 0.625rem 0.625rem 0.625rem var(--box-shadow-gray-3);
+
   --box-shadow-dark-flat: -0.625rem -0.625rem 1.875rem rgba(255, 255, 255, 0.1),
     0.625rem 0.625rem 1.875rem rgba(0, 0, 0, 0.3);
   --box-shadow-dark-convex: -0.625rem -0.625rem 1.875rem rgba(255, 255, 255, 0.05),
@@ -110,15 +120,13 @@ button {
   border: none;
   border-radius: 100%;
   font-weight: 300;
-  box-shadow: -0.625rem -0.625rem 1.875rem white,
-    0.625rem 0.625rem 1.875rem var(--box-shadow-gray-1);
+  box-shadow: var(--box-shadow-flat);
   background-color: var(--bg-color);
   text-shadow: 1px 1px white;
 }
 
 .btn:active {
-  box-shadow: inset -0.625rem -0.625rem 0.625rem var(--box-shadow-white-1),
-    inset 0.625rem 0.625rem 0.625rem var(--box-shadow-gray-3);
+  box-shadow: var(--box-shadow-concave);
 }
 
 #app {
@@ -130,10 +138,7 @@ button {
   padding: 1rem;
   border-radius: 0.5rem;
   border-radius: 1.5rem;
-  box-shadow: -0.625rem -0.625rem 1.875rem white,
-    0.625rem 0.625rem 1.875rem var(--box-shadow-gray-1),
-    inset -0.625rem -0.625rem 0.625rem var(--box-shadow-gray-2),
-    inset 0.625rem 0.625rem 0.625rem white;
+  box-shadow: var(--box-shadow-convex);
   background-color: var(--bg-color);
 }
 
@@ -157,8 +162,7 @@ button {
 
 #power-btn:checked ~ .input-visual.btn {
   color: var(--green-1);
-  box-shadow: inset -0.625rem -0.625rem 0.625rem var(--box-shadow-white-1),
-    inset 0.625rem 0.625rem 0.625rem var(--box-shadow-gray-3);
+  box-shadow: var(--box-shadow-concave);
   text-shadow: var(--text-shadow-lumi-green);
 }
 
@@ -174,8 +178,7 @@ button {
   background-color: var(--bg-color);
   overflow-x: auto;
   overflow-y: hidden;
-  box-shadow: inset -0.625rem -0.625rem 0.625rem var(--box-shadow-white-1),
-    inset 0.625rem 0.625rem 0.625rem var(--box-shadow-gray-3);
+  box-shadow: var(--box-shadow-concave);
 }
 
 #display #expression {
