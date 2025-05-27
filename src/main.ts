@@ -2,47 +2,52 @@ import { Calculator } from './Calculator'
 import './style.css'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div id="calculator">
-    <header>
-      <label for="power-btn" class="custom-input">
-        <input id="power-btn" type="checkbox" />
-        <span class="input-visual btn">
-          <span class="material-icons">power_settings_new</span>
-        </span>
-        <span class="visually-hidden">Power</span>
-      </label>
-    </header>
-    <div id="display">
-      <div id="expression"></div>
-      <div id="result"></div>
-    </div>
-    <div id="keyboard">
-      <button id="ac-btn" type="button" class="btn" data-type="allClear">AC</button>
-      <button id="parentheses-btn" type="button" class="btn" data-type="parentheses" data-term="()">()</button>
-      <button id="percentage-btn" type="button" class="btn" data-type="operator" data-term="%">%</button>
-      <button id="division-btn" type="button" class="btn" data-type="operator" data-term="/">/</button>
-      
-      <button id="seven-btn" type="button" class="btn" data-type="number" data-term="7">7</button>
-      <button id="eight-btn" type="button" class="btn" data-type="number" data-term="8">8</button>
-      <button id="nine-btn" type="button" class="btn" data-type="number" data-term="9">9</button>
-      <button id="multiplication-btn" type="button" class="btn" data-type="operator" data-term="*">*</button>
-      
-      <button id="four-btn" type="button" class="btn" data-type="number" data-term="4">4</button>
-      <button id="five-btn" type="button" class="btn" data-type="number" data-term="5">5</button>
-      <button id="six-btn" type="button" class="btn" data-type="number" data-term="6">6</button>
-      <button id="minus-btn" type="button" class="btn" data-type="operator" data-term="-">-</button>
-      
-      <button id="one-btn" type="button" class="btn" data-type="number" data-term="1">1</button>
-      <button id="two-btn" type="button" class="btn" data-type="number" data-term="2">2</button>
-      <button id="three-btn" type="button" class="btn" data-type="number" data-term="3">3</button>
-      <button id="addition-btn" type="button" class="btn" data-type="operator" data-term="+">+</button>
-      
-      <button id="zero-btn" type="button" class="btn" data-type="number" data-term="0">0</button>
-      <button id="dot-btn" type="button" class="btn" data-type="decimal">.</button>
-      <button id="backspace-btn" type="button" class="btn" data-type="backspace">
-        <span class="material-icons">backspace</span>
-      </button>
-      <button id="eq-btn" type="button" class="btn" data-type="equals">=</button>
+  <header>
+    <h1>Neumorphic Calculator</h1>
+  </header>
+  <div class="flex-container">
+    <div id="calculator">
+      <header>
+        <label for="power-btn" class="custom-input">
+          <input id="power-btn" type="checkbox" />
+          <span class="input-visual btn">
+            <span class="material-icons">power_settings_new</span>
+          </span>
+          <span class="visually-hidden">Power</span>
+        </label>
+      </header>
+      <div id="display">
+        <div id="expression"></div>
+        <div id="result"></div>
+      </div>
+      <div id="keyboard">
+        <button id="ac-btn" type="button" class="btn" data-type="allClear">AC</button>
+        <button id="parentheses-btn" type="button" class="btn" data-type="parentheses" data-term="()">()</button>
+        <button id="percentage-btn" type="button" class="btn" data-type="operator" data-term="%">%</button>
+        <button id="division-btn" type="button" class="btn" data-type="operator" data-term="/">/</button>
+        
+        <button id="seven-btn" type="button" class="btn" data-type="number" data-term="7">7</button>
+        <button id="eight-btn" type="button" class="btn" data-type="number" data-term="8">8</button>
+        <button id="nine-btn" type="button" class="btn" data-type="number" data-term="9">9</button>
+        <button id="multiplication-btn" type="button" class="btn" data-type="operator" data-term="*">*</button>
+        
+        <button id="four-btn" type="button" class="btn" data-type="number" data-term="4">4</button>
+        <button id="five-btn" type="button" class="btn" data-type="number" data-term="5">5</button>
+        <button id="six-btn" type="button" class="btn" data-type="number" data-term="6">6</button>
+        <button id="minus-btn" type="button" class="btn" data-type="operator" data-term="-">-</button>
+        
+        <button id="one-btn" type="button" class="btn" data-type="number" data-term="1">1</button>
+        <button id="two-btn" type="button" class="btn" data-type="number" data-term="2">2</button>
+        <button id="three-btn" type="button" class="btn" data-type="number" data-term="3">3</button>
+        <button id="addition-btn" type="button" class="btn" data-type="operator" data-term="+">+</button>
+        
+        <button id="zero-btn" type="button" class="btn" data-type="number" data-term="0">0</button>
+        <button id="dot-btn" type="button" class="btn" data-type="decimal">.</button>
+        <button id="backspace-btn" type="button" class="btn" data-type="backspace">
+          <span class="material-icons">backspace</span>
+        </button>
+        <button id="eq-btn" type="button" class="btn" data-type="equals">=</button>
+      </div>
     </div>
   </div>
 `

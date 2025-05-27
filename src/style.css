@@ -67,9 +67,6 @@
 }
 
 body {
-  display: flex;
-  place-items: center;
-  min-height: 100vh;
   background: var(--bg-color);
 }
 
@@ -130,7 +127,24 @@ button {
 }
 
 #app {
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  padding: 1rem 2rem;
+}
+
+header h1 {
+  width: min-content;
+}
+
+.flex-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #calculator {
@@ -246,6 +260,10 @@ button {
 @media (prefers-color-scheme: dark) {
   body {
     background-color: var(--bg-color-dark);
+  }
+
+  header {
+    color: orange;
   }
 
   #calculator {
