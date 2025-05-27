@@ -9,7 +9,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         <span class="input-visual btn">
           <span class="material-icons">power_settings_new</span>
         </span>
-        <span class="label-text visually-hidden">Power</span>
+        <span class="visually-hidden">Power</span>
       </label>
     </header>
     <div id="display">

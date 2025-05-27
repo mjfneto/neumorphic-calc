@@ -16,7 +16,20 @@
   font-optical-sizing: auto;
   font-size: 0.75rem;
 
-  color: #6c7587;
+  --text-color: #6c7587;
+  --bg-color: #f0f0f3;
+
+  --box-shadow-gray-1: #aeaec040;
+  --box-shadow-gray-2: #aeaec025;
+  --box-shadow-gray-3: #aeaec020;
+  --box-shadow-white-1: #ffffff70;
+
+  --green-1: #d5ffea;
+  --orange-1: #ffd7a0;
+  --orange-2: #ffd7a070;
+  --orange-3: #f0c992aa;
+
+  color: var(--text-color);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -28,7 +41,7 @@ body {
   display: flex;
   place-items: center;
   min-height: 100vh;
-  background: #f0f0f3;
+  background: var(--bg-color);
 }
 
 button {
@@ -57,11 +70,6 @@ button {
   content: '';
 }
 
-.custom-input .label-text {
-  color: gray;
-  font-weight: 700;
-}
-
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -83,15 +91,15 @@ button {
   border: none;
   border-radius: 100%;
   font-weight: 300;
-  box-shadow: -0.625rem -0.625rem 1.875rem #fff,
-    0.625rem 0.625rem 1.875rem #aeaec040;
-  background-color: #f0f0f3;
+  box-shadow: -0.625rem -0.625rem 1.875rem white,
+    0.625rem 0.625rem 1.875rem var(--box-shadow-gray-1);
+  background-color: var(--bg-color);
   text-shadow: 1px 1px white;
 }
 
 .btn:active {
-  box-shadow: inset -0.625rem -0.625rem 0.625rem #ffffff70,
-    inset 0.625rem 0.625rem 0.625rem #aeaec020;
+  box-shadow: inset -0.625rem -0.625rem 0.625rem var(--box-shadow-white-1),
+    inset 0.625rem 0.625rem 0.625rem var(--box-shadow-gray-3);
 }
 
 #app {
@@ -103,11 +111,11 @@ button {
   padding: 1rem;
   border-radius: 0.5rem;
   border-radius: 1.5rem;
-  box-shadow: -0.625rem -0.625rem 1.875rem #fff,
-    0.625rem 0.625rem 1.875rem #aeaec040,
-    inset -0.625rem -0.625rem 0.625rem #aeaec025,
-    inset 0.625rem 0.625rem 0.625rem #fff;
-  background-color: #f0f0f3;
+  box-shadow: -0.625rem -0.625rem 1.875rem white,
+    0.625rem 0.625rem 1.875rem var(--box-shadow-gray-1),
+    inset -0.625rem -0.625rem 0.625rem var(--box-shadow-gray-2),
+    inset 0.625rem 0.625rem 0.625rem white;
+  background-color: var(--bg-color);
 }
 
 #calculator header {
@@ -129,10 +137,10 @@ button {
 }
 
 #power-btn:checked ~ .input-visual.btn {
-  box-shadow: inset -0.625rem -0.625rem 0.625rem #ffffff70,
-    inset 0.625rem 0.625rem 0.625rem #aeaec020;
-  color: #d5ffea;
-  text-shadow: 1px 1px 2px #d5ffea;
+  box-shadow: inset -0.625rem -0.625rem 0.625rem,
+    inset 0.625rem 0.625rem 0.625rem var(--box-shadow-gray-3);
+  color: var(--green-1);
+  text-shadow: 1px 1px 2px var(--green-1);
 }
 
 #display {
@@ -144,11 +152,11 @@ button {
   min-width: 0;
   margin-bottom: 1rem;
   border-radius: 0.5rem;
-  background-color: #f0f0f3;
+  background-color: var(--bg-color);
   overflow-x: auto;
   overflow-y: hidden;
-  box-shadow: inset -0.625rem -0.625rem 0.625rem #ffffff70,
-    inset 0.625rem 0.625rem 0.625rem #aeaec020;
+  box-shadow: inset -0.625rem -0.625rem 0.625rem var(--box-shadow-white-1),
+    inset 0.625rem 0.625rem 0.625rem var(--box-shadow-gray-3);
 }
 
 #display #expression {
@@ -180,12 +188,14 @@ button {
 }
 
 .btn#eq-btn {
-  background-color: #ffd7a0;
+  box-shadow: -0.625rem -0.625rem 1.875rem white,
+    0.625rem 0.625rem 1.875rem var(--box-shadow-gray-1);
+  background-color: var(--orange-1);
 }
 
 .btn#eq-btn:active {
-  box-shadow: inset -0.625rem -0.625rem 0.625rem #ffd7a070,
-    inset 0.625rem 0.625rem 0.625rem #f0c992aa;
+  box-shadow: inset -0.625rem -0.625rem 0.625rem var(--orange-2),
+    inset 0.625rem 0.625rem 0.625rem var(--orange-3);
 }
 
 .btn[data-type='operator'],
