@@ -29,6 +29,25 @@
   --orange-2: #ffd7a070;
   --orange-3: #f0c992aa;
 
+  --bg-color-dark: #2d2d2d;
+
+  --box-shadow-dark-flat: -0.625rem -0.625rem 1.875rem rgba(255, 255, 255, 0.1),
+    0.625rem 0.625rem 1.875rem rgba(0, 0, 0, 0.3);
+  --box-shadow-dark-convex: -0.625rem -0.625rem 1.875rem rgba(255, 255, 255, 0.05),
+    0.625rem 0.625rem 1.875rem rgba(0, 0, 0, 0.3),
+    inset -0.625rem -0.625rem 0.625rem rgba(0, 0, 0, 0.3),
+    inset 0.625rem 0.625rem 0.625rem rgba(255, 255, 255, 0.05);
+  --box-shadow-dark-concave: inset -0.625rem -0.625rem 0.625rem
+      rgba(255, 255, 255, 0.05),
+    inset 0.625rem 0.625rem 0.625rem rgba(0, 0, 0, 0.3);
+
+  --text-shadow-lumi-green: 1px 1px 2px var(--green-1),
+    1px 4px 6px var(--green-1), 1px -4px 6px var(--green-1),
+    4px 1px 6px var(--green-1), -4px 1px 6px var(--green-1);
+
+  --text-shadow-lumi-orange: 1px 1px 2px orange, 1px 4px 6px orange,
+    1px -4px 6px orange, 4px 1px 6px orange, -4px 1px 6px orange;
+
   color: var(--text-color);
 
   font-synthesis: none;
@@ -133,14 +152,14 @@ button {
 #power-btn ~ .input-visual.btn {
   width: 2.5rem;
   height: 2.5rem;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.75s ease-in-out;
 }
 
 #power-btn:checked ~ .input-visual.btn {
-  box-shadow: inset -0.625rem -0.625rem 0.625rem,
-    inset 0.625rem 0.625rem 0.625rem var(--box-shadow-gray-3);
   color: var(--green-1);
-  text-shadow: 1px 1px 2px var(--green-1);
+  box-shadow: inset -0.625rem -0.625rem 0.625rem var(--box-shadow-white-1),
+    inset 0.625rem 0.625rem 0.625rem var(--box-shadow-gray-3);
+  text-shadow: var(--text-shadow-lumi-green);
 }
 
 #display {
@@ -219,5 +238,49 @@ button {
   .btn#ac-btn,
   .btn#eq-btn {
     font-weight: 600;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--bg-color-dark);
+  }
+
+  #calculator {
+    background-color: var(--bg-color-dark);
+    box-shadow: var(--box-shadow-dark-convex);
+  }
+
+  #display {
+    background-color: var(--bg-color-dark);
+    box-shadow: var(--box-shadow-dark-concave);
+  }
+
+  .btn {
+    color: orange;
+    text-shadow: 1px 1px var(--bg-color-dark);
+    background-color: var(--bg-color-dark);
+    box-shadow: var(--box-shadow-dark-flat);
+  }
+
+  .btn:active {
+    box-shadow: var(--box-shadow-dark-concave);
+  }
+
+  .btn#eq-btn {
+    color: var(--bg-color-dark);
+    text-shadow: 1px 1px rgba(255, 255, 255, 0.1);
+    background-color: orange;
+    box-shadow: var(--box-shadow-dark-flat);
+  }
+
+  .btn#eq-btn:active {
+    box-shadow: var(--box-shadow-dark-concave);
+  }
+
+  #power-btn:checked ~ .input-visual.btn {
+    box-shadow: var(--box-shadow-dark-concave);
+    color: orange;
+    text-shadow: var(--text-shadow-lumi-orange);
   }
 }
