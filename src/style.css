@@ -210,9 +210,8 @@ button {
 }
 
 .btn#eq-btn {
-  box-shadow: -0.625rem -0.625rem 1.875rem white,
-    0.625rem 0.625rem 1.875rem var(--box-shadow-gray-1);
-  background-color: var(--orange-1);
+  color: orange;
+  font-size: 1.5rem;
 }
 
 .btn#eq-btn:active {
@@ -271,10 +270,8 @@ button {
   }
 
   .btn#eq-btn {
-    color: var(--bg-color-dark);
-    text-shadow: 1px 1px rgba(255, 255, 255, 0.1);
-    background-color: orange;
-    box-shadow: var(--box-shadow-dark-flat);
+    color: white;
+    text-shadow: 1px 1px var(--bg-color-dark);
   }
 
   .btn#eq-btn:active {
