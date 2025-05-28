@@ -1,9 +1,23 @@
 import { Calculator } from './Calculator'
 import './style.css'
 
+const prefersDarkMode = window.matchMedia(
+  '(prefers-color-scheme: dark)'
+).matches
+let isDarkMode = prefersDarkMode
+
+prefersDarkMode && document.body.classList.add('dark-mode')
+
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <header>
     <h1>Neumorphic Calculator</h1>
+    <label for="color-theme" class="custom-input">
+      <input id="color-theme" type="checkbox" />
+      <span class="input-visual btn">
+            <span id="color-theme-icon" class="material-icons md-18 md-24"></span>
+      </span>
+      <span class="visually-hidden">Theme</span>
+    </label>
   </header>
   <div class="flex-container">
     <div id="calculator">
@@ -52,6 +66,11 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   </div>
 `
 
+const colorTheme = document.querySelector('#color-theme')!
+const colorThemeIcon = document.querySelector('#color-theme-icon')!
+
+colorThemeIcon.textContent = prefersDarkMode ? 'light_mode' : 'dark_mode'
+
 const powerBtn = document.querySelector('#power-btn')!
 const display = document.querySelector('#display')!
 let expression = display.querySelector('#expression')!
@@ -59,6 +78,19 @@ let result = display.querySelector('#result')!
 let keyboard = document.querySelector('#keyboard')!
 
 const calculator = new Calculator(updateDisplay)
+
+colorTheme.addEventListener('input', function () {
+  isDarkMode = !isDarkMode
+
+  if (isDarkMode) {
+    document.body.classList.add('dark-mode')
+    colorThemeIcon.textContent = 'light_mode'
+    return
+  }
+
+  document.body.classList.remove('dark-mode')
+  colorThemeIcon.textContent = 'dark_mode'
+})
 
 powerBtn.addEventListener('input', function () {
   keyboard[calculator.power() ? 'addEventListener' : 'removeEventListener'](

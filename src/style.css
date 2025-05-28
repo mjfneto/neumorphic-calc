@@ -87,9 +87,8 @@ button {
 
 .custom-input .input-visual {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  right: 0;
   content: '';
 }
 
@@ -130,11 +129,17 @@ button {
 }
 
 header {
+  display: flex;
+  justify-content: space-between;
   padding: 1rem 2rem;
 }
 
 header h1 {
   width: min-content;
+}
+
+#color-theme:checked ~ .input-visual.btn {
+  box-shadow: var(--box-shadow-concave);
 }
 
 .flex-container {
@@ -257,48 +262,52 @@ header h1 {
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: var(--bg-color-dark);
-  }
+/* DARK MODE */
 
-  header {
-    color: orange;
-  }
+body.dark-mode {
+  background-color: var(--bg-color-dark);
+}
 
-  #calculator {
-    background-color: var(--bg-color-dark);
-    box-shadow: var(--box-shadow-dark-convex);
-  }
+body.dark-mode header {
+  color: orange;
+}
 
-  #display {
-    background-color: var(--bg-color-dark);
-    box-shadow: var(--box-shadow-dark-concave);
-  }
+body.dark-mode #color-theme:checked ~ .input-visual.btn {
+  box-shadow: var(--box-shadow-dark-concave);
+}
 
-  .btn {
-    color: orange;
-    text-shadow: 1px 1px var(--bg-color-dark);
-    background-color: var(--bg-color-dark);
-    box-shadow: var(--box-shadow-dark-flat);
-  }
+body.dark-mode #calculator {
+  background-color: var(--bg-color-dark);
+  box-shadow: var(--box-shadow-dark-convex);
+}
 
-  .btn:active {
-    box-shadow: var(--box-shadow-dark-concave);
-  }
+body.dark-mode #display {
+  background-color: var(--bg-color-dark);
+  box-shadow: var(--box-shadow-dark-concave);
+}
 
-  .btn#eq-btn {
-    color: white;
-    text-shadow: 1px 1px var(--bg-color-dark);
-  }
+body.dark-mode .btn {
+  color: orange;
+  text-shadow: 1px 1px var(--bg-color-dark);
+  background-color: var(--bg-color-dark);
+  box-shadow: var(--box-shadow-dark-flat);
+}
 
-  .btn#eq-btn:active {
-    box-shadow: var(--box-shadow-dark-concave);
-  }
+body.dark-mode .btn:active {
+  box-shadow: var(--box-shadow-dark-concave);
+}
 
-  #power-btn:checked ~ .input-visual.btn {
-    box-shadow: var(--box-shadow-dark-concave);
-    color: orange;
-    text-shadow: 0px 0px 4px orange;
-  }
+body.dark-mode .btn#eq-btn {
+  color: white;
+  text-shadow: 1px 1px var(--bg-color-dark);
+}
+
+body.dark-mode .btn#eq-btn:active {
+  box-shadow: var(--box-shadow-dark-concave);
+}
+
+body.dark-mode #power-btn:checked ~ .input-visual.btn {
+  box-shadow: var(--box-shadow-dark-concave);
+  color: orange;
+  text-shadow: 0px 0px 4px orange;
 }
