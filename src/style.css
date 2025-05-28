@@ -68,6 +68,10 @@ button {
   color: inherit;
 }
 
+.material-icons.md-18 {
+  font-size: 18px;
+}
+
 .custom-input {
   position: relative;
   user-select: none;
@@ -231,6 +235,10 @@ header h1 {
 @media screen and (min-width: 768px) {
   :root {
     font-size: 1rem;
+  }
+
+  .material-icons.md-24 {
+    font-size: 24px;
   }
 
   .btn {

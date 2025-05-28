@@ -11,7 +11,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         <label for="power-btn" class="custom-input">
           <input id="power-btn" type="checkbox" />
           <span class="input-visual btn">
-            <span class="material-icons">power_settings_new</span>
+            <span class="material-icons md-18 md-24">power_settings_new</span>
           </span>
           <span class="visually-hidden">Power</span>
         </label>
@@ -44,7 +44,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
         <button id="zero-btn" type="button" class="btn" data-type="number" data-term="0">0</button>
         <button id="dot-btn" type="button" class="btn" data-type="decimal">.</button>
         <button id="backspace-btn" type="button" class="btn" data-type="backspace">
-          <span class="material-icons">backspace</span>
+          <span class="material-icons md-18 md-24">backspace</span>
         </button>
         <button id="eq-btn" type="button" class="btn" data-type="equals">=</button>
       </div>
