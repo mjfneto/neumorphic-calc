@@ -51,13 +51,6 @@
       rgba(255, 255, 255, 0.05),
     inset 0.625rem 0.625rem 0.625rem rgba(0, 0, 0, 0.3);
 
-  --text-shadow-lumi-green: 1px 1px 2px var(--green-1),
-    1px 4px 6px var(--green-1), 1px -4px 6px var(--green-1),
-    4px 1px 6px var(--green-1), -4px 1px 6px var(--green-1);
-
-  --text-shadow-lumi-orange: 1px 1px 2px orange, 1px 4px 6px orange,
-    1px -4px 6px orange, 4px 1px 6px orange, -4px 1px 6px orange;
-
   color: var(--text-color);
 
   font-synthesis: none;
@@ -171,13 +164,13 @@ header h1 {
 #power-btn ~ .input-visual.btn {
   width: 2.5rem;
   height: 2.5rem;
-  transition: color, text-shadow 0.3s 0.3s ease;
+  transition: color, text-shadow 0.3s ease;
 }
 
 #power-btn:checked ~ .input-visual.btn {
-  color: var(--green-1);
+  color: palegreen;
   box-shadow: var(--box-shadow-concave);
-  text-shadow: var(--text-shadow-lumi-green);
+  text-shadow: 0px 0px 4px palegreen;
 }
 
 #display {
@@ -298,6 +291,6 @@ header h1 {
   #power-btn:checked ~ .input-visual.btn {
     box-shadow: var(--box-shadow-dark-concave);
     color: orange;
-    text-shadow: var(--text-shadow-lumi-orange);
+    text-shadow: 0px 0px 4px orange;
   }
 }
