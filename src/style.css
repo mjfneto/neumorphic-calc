@@ -250,6 +250,10 @@ header h1 {
   .btn#eq-btn {
     font-weight: 600;
   }
+
+  #calculator {
+    align-self: start;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
