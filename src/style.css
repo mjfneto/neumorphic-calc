@@ -262,6 +262,13 @@ header h1 {
   }
 }
 
+/* FULLSCREEN */
+@media screen and (display-mode: fullscreen) {
+  #calculator {
+    align-self: center;
+  }
+}
+
 /* DARK MODE */
 
 body.dark-mode {
